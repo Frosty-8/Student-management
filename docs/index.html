@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="darkModeToggle" class="dark-mode-toggle">🌙 Dark Mode</button>
+  
+  <header>
+    <h1>🎓 Student Management System</h1>
+    <p>An interactive, full-featured system built with <strong>Python</strong>, <strong>SQLite</strong>, and <strong>Gradio</strong> to manage students, courses, enrollments, and performance reports.</p>
+  </header>
+
+  <main>
+    <section class="overview">
+      <h2>📌 Project Overview</h2>
+      <p>This Student Management System provides an intuitive UI to perform core academic operations including:</p>
+      <ul>
+        <li>Managing student records (add, search, update GPA, delete)</li>
+        <li>Adding and listing academic courses</li>
+        <li>Enrolling students in multiple courses</li>
+        <li>Viewing enrolled courses per student</li>
+        <li>Generating insightful reports like average GPA by age, total students, etc.</li>
+      </ul>
+    </section>
+
+    <section class="features">
+      <h2>🛠️ Key Features</h2>
+      <div class="grid">
+        <div class="card">🧑 Student CRUD (Create, Read, Update, Delete)</div>
+        <div class="card">📘 Course Management</div>
+        <div class="card">🔗 Many-to-Many Enrollments</div>
+        <div class="card">✏️ GPA Updates</div>
+        <div class="card">📊 SQL-based Reports (AVG, COUNT, GROUP BY)</div>
+        <div class="card">🖥️ Gradio Frontend – No HTML/CSS needed</div>
+      </div>
+    </section>
+
+    <section class="sql">
+      <h2>🧠 SQL Concepts Practiced</h2>
+      <p>Perfect for beginners and intermediate learners to explore SQL in a real-world use case.</p>
+      <ul>
+        <li><code>CREATE TABLE</code>, <code>INSERT</code>, <code>DELETE</code>, <code>UPDATE</code></li>
+        <li><code>SELECT</code>, <code>JOIN</code>, <code>WHERE</code>, <code>LIKE</code></li>
+        <li><code>GROUP BY</code>, <code>AVG()</code>, <code>COUNT()</code></li>
+        <li><code>PRIMARY KEY</code>, <code>FOREIGN KEY</code>, constraints</li>
+      </ul>
+    </section>
+
+    <section class="preview">
+      <h2>🌐 Live UI Preview</h2>
+      <p>This app runs locally or can be deployed to platforms like <strong>Railway</strong>, <strong>Render</strong>, or even <strong>GitHub Codespaces</strong>.</p>
+      <img src="screenshot.png" alt="Gradio UI Preview" />
+    </section>
+
+    <section class="install">
+      <h2>🚀 How to Run</h2>
+      <ol>
+        <li>Clone the project: <code>git clone https://github.com/yourusername/student-mgmt.git</code></li>
+        <li>Install dependencies: <code>uv pip install -r requirements.txt</code> or <code>pip install gradio</code></li>
+        <li>Run it: <code>python main.py</code></li>
+        <li>Open browser: <code>http://localhost:7860</code></li>
+      </ol>
+    </section>
+
+    <section class="deploy">
+      <h2>📦 Deployment Notes</h2>
+      <p>
+        This system uses <strong>SQLite</strong> for simplicity and learning. For cloud deployment with persistent storage, we recommend switching to <strong>PostgreSQL</strong> and using platforms like:
+      </p>
+      <ul>
+        <li>🔁 <a href="https://railway.app" target="_blank">Railway</a> (1-click PostgreSQL + Gradio support)</li>
+        <li>🔧 <a href="https://render.com" target="_blank">Render</a> (via render.yaml or Docker)</li>
+        <li>📂 <a href="https://supabase.io" target="_blank">Supabase</a> (for database backend)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ by <strong>Sarthak Dongare</strong></p>
+    <p><a href="https://github.com/Frosty-8/Student-management" target="_blank">View Source Code on GitHub</a></p>
+  </footer>
+
+  <script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    
+    // Check for saved user preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      darkModeToggle.textContent = '☀️ Light Mode';
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeToggle.textContent = '☀️ Light Mode';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeToggle.textContent = '🌙 Dark Mode';
+      }
+    });
+  </script>
+</body>
+</html>
